@@ -1,15 +1,17 @@
 import React from 'react';
 
 import { useAppContext } from '../../contexts/AppContext';
-import { Box, IconButton, ToggleButton, ToggleButtonGroup, Toolbar } from '@mui/material';
+import { Box, IconButton, ToggleButton, ToggleButtonGroup, Toolbar, useTheme } from '@mui/material';
 import { Typography } from '@mui/material';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { theme } from '../../theme/theme';
 
 export function Header() {
+    const theme = useTheme();
     const { year, setYear, month, setMonth, view, setView } = useAppContext();
 
     const monthNames = [
@@ -75,7 +77,7 @@ function Logo({ text }: { text: string }) {
         <div>
             <Typography
                 sx={{ 
-                    fontWeight: "semibold",
+                    fontWeight: theme.typography.fontWeightMedium,
                     color: "grey.900",
                     fontSize: "1.7rem",
                     fontFamily: "'Playfair Display', serif"
@@ -96,7 +98,9 @@ function YearMonth({ year, month, monthName, onMonthChange }: { year: number; mo
             }}>
             <Typography
                 variant="subtitle1"
-                sx={{ color: "grey.600" }}>
+                sx={{
+                    fontWeight: theme.typography.fontWeightMedium
+                }}>
                 {year}
             </Typography>
             <Box
@@ -114,7 +118,7 @@ function YearMonth({ year, month, monthName, onMonthChange }: { year: number; mo
                     sx={{
                         minWidth: "80px",
                         textAlign: "center",
-                        fontWeight: 1000
+                        fontWeight: theme.typography.fontWeightBold,
                     }}
                 >
                     {month}
