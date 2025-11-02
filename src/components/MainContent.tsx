@@ -1,4 +1,4 @@
-import {Box, Typography} from '@mui/material';
+import {Box } from '@mui/material';
 import {Header} from './Header/Header';
 import {InputBar} from './InputBar';
 import {Transactions} from './Transaction/Transaction';
@@ -16,7 +16,7 @@ export function MainContent() {
                 <Box sx={{minHeight: '100vh', backgroundColor: '#f5f5f5', pb: 8}}>
                     <Header />
                     {view === 'list' && <ListView />}
-                    {view === 'calendar' && <Calendar />}
+                    {view === 'calendar' && <CalendarView />}
                 </Box>
             </TransactionContextProvider>
         </InputBarProvider>
@@ -48,4 +48,22 @@ function ListView() {
             </Box>
         </>
     );
+}
+
+function CalendarView() {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    px: 2,
+                    mt: -5,
+                    flexDirection: 'column',
+                }}
+            >
+                <Calendar />
+            </Box>
+        </>
+    )
 }

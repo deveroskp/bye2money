@@ -47,7 +47,7 @@ export function Header() {
                 width: '100%',
                 minHeight: 200,
                 py: 4,
-                backgroundColor: '#9f9e9e',
+                backgroundColor: '#72a5d0',
             }}>
             <Toolbar
                 sx={{
