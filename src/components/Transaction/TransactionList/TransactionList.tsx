@@ -2,6 +2,7 @@ import { Box, Divider, Typography } from '@mui/material';
 import { useTransactionContext } from '../../../contexts/TransactionContext';
 import type { Transaction } from '../../../contexts/TransactionContext';
 import { TransactionItem } from './TransactionItem/TransactionItem';
+import { dayOfWeek } from '../../../utils/Date';
 
 export function TransactionList() {
     const { transactions, incomeChecked, expensedChecked } = useTransactionContext();
@@ -27,7 +28,7 @@ export function TransactionList() {
         }
 
         const dateObj = new Date(date);
-        const formattedDate = `${dateObj.getMonth() + 1}월 ${dateObj.getDate()}일`;
+        const formattedDate = `${dateObj.getMonth() + 1}월 ${dateObj.getDate()}일 ${['일', '월', '화', '수', '목', '금', '토'][dayOfWeek(dateObj) - 1]}요일`;
         const totalIncome = transactionsForDate.filter(tx => !tx.isExpense).reduce((sum, tx) => sum + tx.amount, 0);
         const totalExpense = transactionsForDate.filter(tx => tx.isExpense).reduce((sum, tx) => sum + tx.amount, 0);
 

@@ -57,8 +57,6 @@ export function TransactionItem({transaction}: TransactionItemProps) {
                 display: 'flex',
                 alignItems: 'stretch',
                 backgroundColor: theme.palette.background.paper,
-                borderBottom: '1px solid',
-                borderColor: theme.palette.neutral[200],
                 minHeight: 64,
                 width: '100%',
                 ...hoverEffect,
